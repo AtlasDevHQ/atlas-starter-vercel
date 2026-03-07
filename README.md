@@ -2,7 +2,7 @@
 
 A text-to-SQL data analyst agent powered by [Atlas](https://useatlas.dev).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?env=ATLAS_PROVIDER,ANTHROPIC_API_KEY,ATLAS_DATASOURCE_URL,DATABASE_URL&envDescription=Atlas%20environment%20variables&project-name=atlas-starter-vercel)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?env=ANTHROPIC_API_KEY,BETTER_AUTH_SECRET&envDescription=Set%20your%20Anthropic%20API%20key%20and%20a%20random%2032%2B%20char%20auth%20secret&project-name=atlas-starter-vercel)
 
 This project is configured for **PostgreSQL**. Ask natural-language questions, and the agent explores a semantic layer, writes validated SQL, and returns interpreted results.
 
