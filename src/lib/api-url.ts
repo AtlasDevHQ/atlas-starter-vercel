@@ -1,3 +1,2 @@
-// Simplified: API is embedded via catch-all route — always same-origin.
-export const API_URL = "";
-export const IS_CROSS_ORIGIN = false;
+export const API_URL = (process.env.NEXT_PUBLIC_ATLAS_API_URL ?? "").replace(/\/+$/, "");
+export const IS_CROSS_ORIGIN = !!API_URL;
