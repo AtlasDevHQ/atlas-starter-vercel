@@ -3,7 +3,6 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { buildThemeInitScript } from "@/ui/hooks/theme-init-script";
 import { AuthGuard } from "@/ui/components/auth-guard";
 import { QueryProvider } from "@/ui/components/query-provider";
-import { ModeBanner } from "@/ui/components/mode-banner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,7 +25,6 @@ export default function RootLayout({
         <QueryProvider>
           <NuqsAdapter>
             <AuthGuard>
-              <ModeBanner />
               <div className="flex min-h-0 flex-1 flex-col">{children}</div>
             </AuthGuard>
           </NuqsAdapter>
