@@ -29,7 +29,7 @@
         "@tanstack/react-table": "^8.21.3",
         "@useatlas/react": "^0.0.7",
         "@useatlas/sdk": "^0.0.12",
-        "@useatlas/types": "^0.0.16",
+        "@useatlas/types": "^0.0.17",
         "ai": "^6.0.141",
         "better-auth": "^1.5.1",
         "class-variance-authority": "^0.7.1",
@@ -718,7 +718,7 @@
 
     "@useatlas/sdk": ["@useatlas/sdk@0.0.12", "", { "dependencies": { "@useatlas/types": "^0.0.16" } }, "sha512-Iko2BVFGXYEzES/h3xQre4HP0xdaVd9p7Ere5STUnKlMK9D8+Xp92zka0kEKJJzCmI1qrf4AeRrIRTLS/f2GaQ=="],
 
-    "@useatlas/types": ["@useatlas/types@0.0.16", "", {}, "sha512-DZnNmIN+Y3+vEZJ/vPZpxYlOWYKgaEM1+LJ/OGR71Fa26+j6yNwUDeWbAofEjV3rOphnrvQFmEytC4BL9cdgrQ=="],
+    "@useatlas/types": ["@useatlas/types@0.0.17", "", {}, "sha512-VDZqrCGl7TZemzYf3Cy21CxxtFbJxefLUNUnHnw10QM0VJsh85k6eCviceI4DxZokUek+NRTTWEMi7vh6Ys8+Q=="],
 
     "@vercel/oidc": ["@vercel/oidc@3.2.0", "", {}, "sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug=="],
 
@@ -1296,7 +1296,7 @@
 
     "kleur": ["kleur@4.1.5", "", {}, "sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ=="],
 
-    "kysely": ["kysely@0.28.16", "", {}, "sha512-3i5pmOiZvMDj00qhrIVbH0AnioVTx22DMP7Vn5At4yJO46iy+FM8Y/g61ltenLVSo3fiO8h8Q3QOFgf/gQ72ww=="],
+    "kysely": ["kysely@0.28.17", "", {}, "sha512-nbD8lB9EB3wNdMhOCdx5Li8DxnLbvKByylRLcJ1h+4SkrowVeECAyZlyiKMThF7xFdRz0jSQ2MoJr+wXux2y0Q=="],
 
     "lazystream": ["lazystream@1.0.1", "", { "dependencies": { "readable-stream": "^2.0.5" } }, "sha512-b94GiNHQNy6JNTrt5w6zNyffMrNkXZb3KTkCZJb2V1xaEGCk093vkZ2jk3tpaeP33/OiXC+WvK9AxUebnf5nbw=="],
 
@@ -2176,6 +2176,8 @@
 
     "@useatlas/react/@useatlas/types": ["@useatlas/types@0.0.8", "", {}, "sha512-u7/Lv/YcWJxlzPjSJH1ja5OELxu93Hd25b8hDmohHgSSB5/pPmAUJylgGeP4L2OHHPwYjHxFAQZ6GEgyK8nQhg=="],
 
+    "@useatlas/sdk/@useatlas/types": ["@useatlas/types@0.0.16", "", {}, "sha512-DZnNmIN+Y3+vEZJ/vPZpxYlOWYKgaEM1+LJ/OGR71Fa26+j6yNwUDeWbAofEjV3rOphnrvQFmEytC4BL9cdgrQ=="],
+
     "@vercel/sandbox/zod": ["zod@3.24.4", "", {}, "sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg=="],
 
     "ai/@opentelemetry/api": ["@opentelemetry/api@1.9.0", "", {}, "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="],
@@ -2253,8 +2255,6 @@
     "string_decoder/safe-buffer": ["safe-buffer@5.2.1", "", {}, "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="],
 
     "tar-fs/tar-stream": ["tar-stream@2.2.0", "", { "dependencies": { "bl": "^4.0.3", "end-of-stream": "^1.4.1", "fs-constants": "^1.0.0", "inherits": "^2.0.3", "readable-stream": "^3.1.1" } }, "sha512-ujeqbceABgwMZxEJnk2HDY2DlnUZ+9oEcb1KzTVfYHio0UE6dG71n60d8D2I4qNvleWrrXpmjpt7vZeF1LnMZQ=="],
-
-    "tunnel-agent/safe-buffer": ["safe-buffer@5.2.1", "", {}, "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="],
 
     "unzipper/readable-stream": ["readable-stream@2.3.8", "", { "dependencies": { "core-util-is": "~1.0.0", "inherits": "~2.0.3", "isarray": "~1.0.0", "process-nextick-args": "~2.0.0", "safe-buffer": "~5.1.1", "string_decoder": "~1.1.1", "util-deprecate": "~1.0.1" } }, "sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA=="],
 
