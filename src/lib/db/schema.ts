@@ -382,33 +382,9 @@ export const tokenUsage = pgTable(
   ],
 );
 
-// ---------------------------------------------------------------------------
-// Invitations
-// ---------------------------------------------------------------------------
-
-export const invitations = pgTable(
-  "invitations",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    email: text("email").notNull(),
-    role: text("role").notNull().default("member"),
-    token: text("token").notNull().unique(),
-    status: text("status").notNull().default("pending"),
-    invitedBy: text("invited_by"),
-    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
-    acceptedAt: timestamp("accepted_at", { withTimezone: true }),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
-    // Org scoping
-    orgId: text("org_id"),
-  },
-  (t) => [
-    index("idx_invitations_email").on(t.email),
-    index("idx_invitations_token").on(t.token),
-    index("idx_invitations_status").on(t.status),
-    uniqueIndex("idx_invitations_pending_email").on(t.email, t.orgId).where(sql`status = 'pending'`),
-    index("idx_invitations_org").on(t.orgId),
-  ],
-);
+// Legacy `invitations` (plural) table has been dropped. Org invitations
+// live in Better Auth's `invitation` (singular) table owned by the org
+// plugin in `lib/auth/server.ts`.
 
 // ---------------------------------------------------------------------------
 // Plugin & application settings
@@ -2251,6 +2227,13 @@ export const crmOutbox = pgTable(
     id: uuid("id").primaryKey().defaultRandom(),
     eventType: text("event_type").notNull(),
     payload: jsonb("payload").notNull(),
+    // Per-email serialization key (0104, #2870). Lowercased+trimmed
+    // primary email extracted from `payload` at enqueue. CLAIM_SQL
+    // dedupes by this column and gates each claim on a no-in_flight
+    // check so concurrent rows for the same email never dispatch
+    // simultaneously. Nullable for legacy / non-email-keyed event
+    // types — those rows fall back to per-id deduplication.
+    emailKey: text("email_key"),
     status: text("status").$type<OutboxStatus>().notNull().default("pending"),
     attempts: integer("attempts").notNull().default(0),
     lastError: text("last_error"),
@@ -2271,6 +2254,9 @@ export const crmOutbox = pgTable(
     ),
     index("idx_crm_outbox_pending_created")
       .on(t.status, t.createdAt)
+      .where(sql`status IN ('pending', 'in_flight')`),
+    index("idx_crm_outbox_email_key_active")
+      .on(t.emailKey, t.status, t.createdAt)
       .where(sql`status IN ('pending', 'in_flight')`),
   ],
 );
